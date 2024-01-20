@@ -1,8 +1,7 @@
-use axum::{Router, routing::get};
+use axum::{routing::get, Router};
 
 use crate::controller::handler::hello;
 
 pub fn app() -> Router {
-    Router::new()
-        .route("/", get(hello))
+    Router::new().route("/", get(hello))
 }
