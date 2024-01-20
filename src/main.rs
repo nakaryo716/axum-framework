@@ -1,16 +1,11 @@
 use tracing::info;
-use route::app;
-
-mod model;
-mod controller;
-mod route;
-mod services;
+use app::routes::route;
 
 #[tokio::main]
 async fn main() {
     tracing_subscriber::fmt::init();
 
-    let app = app();
+    let app = route::app();
     
     let listener = tokio::net::TcpListener::bind("0.0.0.0:8080")
         .await
